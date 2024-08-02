@@ -3,10 +3,37 @@ public class AstPrinter implements Expr.Visitor<String> {
         return expr.accept(this);
     }
 
+    /**
+     * @param expr
+     * @return
+     */
+    @Override
+    public String visitAssignExpr(Expr.Assign expr) {
+        return "";
+    }
+
     @Override
     public String visitBinaryExpr(Expr.Binary expr) {
         return parenthesize(expr.operator.lexeme,
                 expr.left, expr.right);
+    }
+
+    /**
+     * @param expr
+     * @return
+     */
+    @Override
+    public String visitCallExpr(Expr.Call expr) {
+        return "";
+    }
+
+    /**
+     * @param expr
+     * @return
+     */
+    @Override
+    public String visitGetExpr(Expr.Get expr) {
+        return "";
     }
 
     @Override
@@ -20,9 +47,45 @@ public class AstPrinter implements Expr.Visitor<String> {
         return expr.value.toString();
     }
 
+    /**
+     * @param expr
+     * @return
+     */
+    @Override
+    public String visitLogicalExpr(Expr.Logical expr) {
+        return "";
+    }
+
+    /**
+     * @param expr
+     * @return
+     */
+    @Override
+    public String visitSetExpr(Expr.Set expr) {
+        return "";
+    }
+
+    /**
+     * @param expr
+     * @return
+     */
+    @Override
+    public String visitThisExpr(Expr.This expr) {
+        return "";
+    }
+
     @Override
     public String visitUnaryExpr(Expr.Unary expr) {
         return parenthesize(expr.operator.lexeme, expr.right);
+    }
+
+    /**
+     * @param expr
+     * @return
+     */
+    @Override
+    public String visitVariableExpr(Expr.Variable expr) {
+        return "";
     }
 
     private String parenthesize(String name, Expr... exprs) {
